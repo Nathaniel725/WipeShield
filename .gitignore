@@ -1,0 +1,4 @@
+build/
+*.app
+resources/WipeGuard.iconset/
+.DS_Store

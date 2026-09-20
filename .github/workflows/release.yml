@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build universal app
+        run: SKIP_DEPLOY=1 ./scripts/build.sh
+
+      - name: Package
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if [ -z "$VERSION" ] || [ "$VERSION" = "$GITHUB_REF_NAME" ]; then
+            VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' WipeGuard.app/Contents/Info.plist)"
+          fi
+          ditto -c -k --sequesterRsrc --keepParent WipeGuard.app "WipeGuard-${VERSION}-universal.zip"
+          shasum -a 256 "WipeGuard-${VERSION}-universal.zip" > "WipeGuard-${VERSION}-universal.zip.sha256"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WipeGuard-universal
+          path: |
+            WipeGuard-*-universal.zip
+            WipeGuard-*-universal.zip.sha256
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            WipeGuard-*-universal.zip
+            WipeGuard-*-universal.zip.sha256
+          generate_release_notes: true
