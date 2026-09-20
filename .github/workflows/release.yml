@@ -5,6 +5,9 @@ on:
     tags: ['v*']
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: macos-14
@@ -38,4 +41,11 @@ jobs:
           files: |
             WipeShield-*-universal.zip
             WipeShield-*-universal.zip.sha256
-          generate_release_notes: true
+          body: |
+            **WipeShield ${{ github.ref_name }}**
+
+            Universal binary (Apple Silicon + Intel), macOS 10.15+.
+
+            Download `WipeShield-*-universal.zip`, unzip, drag **WipeShield.app** to `/Applications`.
+            First launch: right-click the app → **Open** (no Developer ID signature yet), then grant the
+            **Accessibility** permission when prompted. See the README for details.
