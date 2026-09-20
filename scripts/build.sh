@@ -1,11 +1,11 @@
 #!/bin/bash
-# WipeGuard 一键构建：编译通用二进制 → 组装 .app → 生成图标 → Ad-hoc 签名
+# WipeShield 一键构建：编译通用二进制 → 组装 .app → 生成图标 → Ad-hoc 签名
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-APP_NAME="WipeGuard"
+APP_NAME="WipeShield"
 MIN_DEPLOY="10.15"
 BUILD_DIR="$ROOT/build"
 APP_ROOT="$ROOT/$APP_NAME.app"
@@ -16,8 +16,8 @@ mkdir -p "$BUILD_DIR/arm64" "$BUILD_DIR/x86_64"
 
 echo "==> 生成应用图标"
 if [ ! -f "$ROOT/resources/AppIcon.icns" ] || [ "${FORCE_ICON:-0}" = "1" ]; then
-    swift "$ROOT/scripts/make_icon.swift" "$ROOT/resources/WipeGuard.iconset"
-    iconutil -c icns "$ROOT/resources/WipeGuard.iconset" -o "$ROOT/resources/AppIcon.icns"
+    swift "$ROOT/scripts/make_icon.swift" "$ROOT/resources/WipeShield.iconset"
+    iconutil -c icns "$ROOT/resources/WipeShield.iconset" -o "$ROOT/resources/AppIcon.icns"
 else
     echo "    图标已存在，跳过（FORCE_ICON=1 可强制重新生成）"
 fi
@@ -26,13 +26,13 @@ echo "==> 编译 arm64"
 swiftc -O -swift-version 5 \
     -target "arm64-apple-macos${MIN_DEPLOY}" \
     -o "$BUILD_DIR/arm64/$APP_NAME" \
-    Sources/WipeGuard/*.swift
+    Sources/WipeShield/*.swift
 
 echo "==> 编译 x86_64"
 if swiftc -O -swift-version 5 \
     -target "x86_64-apple-macos${MIN_DEPLOY}" \
     -o "$BUILD_DIR/x86_64/$APP_NAME" \
-    Sources/WipeGuard/*.swift; then
+    Sources/WipeShield/*.swift; then
     echo "==> 合成通用二进制 (arm64 + x86_64)"
     lipo -create -output "$BUILD_DIR/$APP_NAME" \
         "$BUILD_DIR/arm64/$APP_NAME" "$BUILD_DIR/x86_64/$APP_NAME"
@@ -48,18 +48,27 @@ cp "$ROOT/resources/Info.plist" "$APP_ROOT/Contents/Info.plist"
 if [ -f "$ROOT/resources/AppIcon.icns" ]; then
     cp "$ROOT/resources/AppIcon.icns" "$APP_ROOT/Contents/Resources/"
 fi
+# 本地化资源：每种语言的 .lproj 目录放进 Resources，语言随系统自动选择
+if [ -d "$ROOT/resources/Localizations" ]; then
+    for lproj in "$ROOT/resources/Localizations/"*.lproj; do
+        [ -d "$lproj" ] && cp -R "$lproj" "$APP_ROOT/Contents/Resources/"
+    done
+fi
 chmod +x "$APP_ROOT/Contents/MacOS/$APP_NAME"
 
 echo "==> 签名"
 SIGN_IDENTITY=""
-if security find-identity -v -p codesigning 2>/dev/null | grep -qF "WipeGuard Dev"; then
-    SIGN_IDENTITY="WipeGuard Dev"
-fi
+for candidate in "WipeShield Dev" "WipeGuard Dev"; do
+    if security find-identity -v -p codesigning 2>/dev/null | grep -qF "$candidate"; then
+        SIGN_IDENTITY="$candidate"
+        break
+    fi
+done
 if [ -n "${SIGN_IDENTITY}" ]; then
     echo "    使用固定开发证书 ${SIGN_IDENTITY} （重新构建后辅助功能授权不会失效）"
     codesign --force --timestamp=none --sign "${SIGN_IDENTITY}" "$APP_ROOT"
 else
-    echo "    未找到 WipeGuard Dev 证书，回退 Ad-hoc 签名（每次构建后需重新授予辅助功能权限）"
+    echo "    未找到本地开发证书，回退 Ad-hoc 签名（每次构建后需重新授予辅助功能权限）"
     codesign --force --sign - "$APP_ROOT"
 fi
 codesign --verify --strict "$APP_ROOT"

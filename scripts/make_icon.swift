@@ -1,10 +1,10 @@
 import AppKit
 
-// 生成 WipeGuard 应用图标（iconset → iconutil 转 icns）。
+// 生成 WipeShield 应用图标（iconset → iconutil 转 icns）。
 // 用法: swift scripts/make_icon.swift <输出 iconset 路径>
 
 let args = CommandLine.arguments
-let outPath = args.count > 1 ? args[1] : "WipeGuard.iconset"
+let outPath = args.count > 1 ? args[1] : "WipeShield.iconset"
 try! FileManager.default.createDirectory(atPath: outPath, withIntermediateDirectories: true)
 
 let entries: [(String, CGFloat)] = [

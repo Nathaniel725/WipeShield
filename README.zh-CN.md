@@ -1,6 +1,6 @@
-# WipeGuard 擦屏卫士
+# WipeShield 擦屏卫士
 
-**擦拭 MacBook 屏幕与键盘时，锁定一切输入——不用关机。** 打开 WipeGuard，点「开始擦拭模式」，屏幕立即变为纯黑，键盘、触控板手势、鼠标、滚轮、媒体键的全部输入在系统层被丢弃。擦完按 `esc` 退出，就这么简单。
+**擦拭 MacBook 屏幕与键盘时，锁定一切输入——不用关机。** 打开 WipeShield，点「开始擦拭模式」，屏幕立即变为纯黑，键盘、触控板手势、鼠标、滚轮、媒体键的全部输入在系统层被丢弃。擦完按 `esc` 退出，就这么简单。
 
 [![GitHub Releases 下载](https://img.shields.io/badge/下载-GitHub%20Releases-blue)](../../releases)
 ![platform](https://img.shields.io/badge/平台-macOS%2010.15%2B-arm64%20%2B%20x86__64)
@@ -23,7 +23,7 @@
 
 ## 竞品对比
 
-| | **WipeGuard** | [KeyboardCleanTool](https://folivora.ai/keyboardcleantool/) | [pristine_screen](https://github.com/RhinoInani/pristine_screen) | [LUCE](https://github.com/arinltte/LUCE) |
+| | **WipeShield** | [KeyboardCleanTool](https://folivora.ai/keyboardcleantool/) | [pristine_screen](https://github.com/RhinoInani/pristine_screen) | [LUCE](https://github.com/arinltte/LUCE) |
 |---|---|---|---|---|
 | 拦截键盘 | ✅ | ✅ | ✅ | ✅ |
 | 拦截鼠标 / 触控板 / 滚轮 / 手势 | ✅ | ✅ | ❌ 鼠标乱飞 | ❌（靠鼠标点按钮解锁） |
@@ -38,11 +38,11 @@
 | 最低系统 | **10.15** | — | 未知 | 14 |
 | 开源 | ✅ MIT | ❌ | ✅ | ✅ |
 
-"失效保护"指：输入拦截因任何原因失效时，WipeGuard **立即自动结束擦拭模式并提示**，绝不停留在"看似锁定、实际没锁"的危险状态。
+"失效保护"指：输入拦截因任何原因失效时，WipeShield **立即自动结束擦拭模式并提示**，绝不停留在"看似锁定、实际没锁"的危险状态。
 
 ## 安装
 
-从 [Releases](../../releases) 下载 `WipeGuard-<版本>-universal.zip`，解压后把 **WipeGuard.app** 拖入 `/Applications`。
+从 [Releases](../../releases) 下载 `WipeShield-<版本>-universal.zip`，解压后把 **WipeShield.app** 拖入 `/Applications`。
 
 - 构建使用 ad-hoc 签名（暂无 Apple 开发者证书），首次打开请**右键 → 打开 → 打开**，之后正常双击即可；
 - 要求 macOS 10.15+；通用二进制（Apple Silicon + Intel）。
@@ -52,7 +52,7 @@
 拦截系统输入需要**辅助功能**权限（本品类所有工具都需要）：
 
 1. 首次打开会弹出引导，点「打开系统设置」；
-2. 在 **系统设置 → 隐私与安全性 → 辅助功能** 中允许 WipeGuard；
+2. 在 **系统设置 → 隐私与安全性 → 辅助功能** 中允许 WipeShield；
 3. 回到弹窗点「我已授权，重试」。
 
 ## 使用
@@ -92,12 +92,12 @@
 要求：Xcode Command Line Tools（`xcode-select --install`）。
 
 ```bash
-./scripts/build.sh          # 构建通用 WipeGuard.app（图标、双架构、lipo、签名）
+./scripts/build.sh          # 构建通用 WipeShield.app（图标、双架构、lipo、签名）
 ```
 
 - 构建脚本会自动部署到 `/Applications` 并结束正在运行的实例；设 `SKIP_DEPLOY=1` 可跳过（CI 如此）；
-- 存在名为 **WipeGuard Dev** 的本地证书时自动使用（使辅助功能授权在重新构建后保持有效，见 `scripts/create_cert.sh`），否则回退 ad-hoc 签名；
-- 自动化测试安全网：`WipeGuard.app/Contents/MacOS/WipeGuard --self-test <秒>` 在 N 秒后自动清理退出；`--self-test-start` 额外自动触发一次启动路径。
+- 存在名为 **WipeShield Dev** 的本地证书时自动使用（使辅助功能授权在重新构建后保持有效，见 `scripts/create_cert.sh`），否则回退 ad-hoc 签名；
+- 自动化测试安全网：`WipeShield.app/Contents/MacOS/WipeShield --self-test <秒>` 在 N 秒后自动清理退出；`--self-test-start` 额外自动触发一次启动路径。
 
 发布版由 GitHub Actions（`.github/workflows/release.yml`）在推送 tag 时自动构建。
 

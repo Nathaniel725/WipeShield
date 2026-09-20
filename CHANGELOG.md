@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0 (2026-09-20)
+
+- **Renamed to WipeShield** (bundle id `com.wipeshield.mac`).
+- **Localization**: standard `.strings` system with 8 languages — English,
+  简体中文, 繁體中文, 日本語, 한국어, Deutsch, Français, Español. Follows the
+  system language; add a new language by dropping a `.lproj` folder (no code
+  changes needed).
+
 ## 1.2.0 (2026-09-20)
 
 - **Fixed the crash on "Start Cleaning Mode"** (present since 1.0.1):

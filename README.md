@@ -1,6 +1,6 @@
-# WipeGuard 擦屏卫士
+# WipeShield 擦屏卫士
 
-**Lock every input on your Mac so you can clean the screen and keyboard without shutting down.** Open WipeGuard, click *Start Cleaning Mode* — the screen goes pure black, and every keystroke, trackpad gesture, mouse move, scroll and media key is dropped at the system level. Press `esc` when you're done. That's it.
+**Lock every input on your Mac so you can clean the screen and keyboard without shutting down.** Open WipeShield, click *Start Cleaning Mode* — the screen goes pure black, and every keystroke, trackpad gesture, mouse move, scroll and media key is dropped at the system level. Press `esc` when you're done. That's it.
 
 [![Download on GitHub Releases](https://img.shields.io/badge/download-GitHub%20Releases-blue)](../../releases)
 ![platform](https://img.shields.io/badge/platform-macOS%2010.15%2B-arm64%20%2B%20x86__64)
@@ -19,11 +19,11 @@ You want to wipe your MacBook's screen or keyboard, but:
 - a stray key leaves garbage in the document you're editing;
 - a stray trackpad swipe triggers pinch-zoom in the screen-sharing window you left open.
 
-WipeGuard covers every display with a pure-black shield and discards **all** input events — nothing lights up, nothing gets typed, nothing leaks to any app.
+WipeShield covers every display with a pure-black shield and discards **all** input events — nothing lights up, nothing gets typed, nothing leaks to any app.
 
 ## How it compares
 
-| | **WipeGuard** | [KeyboardCleanTool](https://folivora.ai/keyboardcleantool/) | [pristine_screen](https://github.com/RhinoInani/pristine_screen) | [LUCE](https://github.com/arinltte/LUCE) |
+| | **WipeShield** | [KeyboardCleanTool](https://folivora.ai/keyboardcleantool/) | [pristine_screen](https://github.com/RhinoInani/pristine_screen) | [LUCE](https://github.com/arinltte/LUCE) |
 |---|---|---|---|---|
 | Blocks keyboard | ✅ | ✅ | ✅ | ✅ |
 | Blocks mouse / trackpad / scroll / gestures | ✅ | ✅ | ❌ cursor flies around | ❌ (mouse is the unlock) |
@@ -38,11 +38,11 @@ WipeGuard covers every display with a pure-black shield and discards **all** inp
 | Minimum macOS | **10.15** | — | unknown | 14 |
 | Open source | ✅ MIT | ❌ | ✅ | ✅ |
 
-"Fail-safe" means: if the input blocker ever becomes invalid (permission revoked, system policy), WipeGuard **immediately ends cleaning mode and tells you**, instead of leaving a black screen that looks locked but isn't.
+"Fail-safe" means: if the input blocker ever becomes invalid (permission revoked, system policy), WipeShield **immediately ends cleaning mode and tells you**, instead of leaving a black screen that looks locked but isn't.
 
 ## Install
 
-Download `WipeGuard-<version>-universal.zip` from [Releases](../../releases), unzip, and drag **WipeGuard.app** to `/Applications`.
+Download `WipeShield-<version>-universal.zip` from [Releases](../../releases), unzip, and drag **WipeShield.app** to `/Applications`.
 
 - Builds are ad-hoc signed (no Apple Developer certificate yet), so on first launch: **right-click the app → Open → Open**. After that it opens normally.
 - Requires macOS 10.15 or later. Universal binary (Apple Silicon + Intel).
@@ -51,8 +51,8 @@ Download `WipeGuard-<version>-universal.zip` from [Releases](../../releases), un
 
 Blocking system input requires the **Accessibility** permission (every tool in this category needs it):
 
-1. On first launch WipeGuard shows a guide — click *Open System Settings*;
-2. In **System Settings → Privacy & Security → Accessibility**, allow WipeGuard;
+1. On first launch WipeShield shows a guide — click *Open System Settings*;
+2. In **System Settings → Privacy & Security → Accessibility**, allow WipeShield;
 3. Back in the dialog, click *Granted, Retry*.
 
 ## Usage
@@ -92,12 +92,12 @@ No network access, no data collection, no third-party code. The entire codebase 
 Requirements: Xcode Command Line Tools (`xcode-select --install`).
 
 ```bash
-./scripts/build.sh          # build universal WipeGuard.app (icon, dual-arch, lipo, sign)
+./scripts/build.sh          # build universal WipeShield.app (icon, dual-arch, lipo, sign)
 ```
 
 - The build script auto-deploys to `/Applications` and stops a running instance; set `SKIP_DEPLOY=1` to skip (CI does).
-- It signs with a local certificate named **WipeGuard Dev** if present (so the Accessibility permission survives rebuilds — see `scripts/create_cert.sh`), otherwise falls back to ad-hoc.
-- Automated-test safety net: `WipeGuard.app/Contents/MacOS/WipeGuard --self-test <seconds>` exits cleanly after N seconds; `--self-test-start` additionally triggers the start path once.
+- It signs with a local certificate named **WipeShield Dev** if present (so the Accessibility permission survives rebuilds — see `scripts/create_cert.sh`), otherwise falls back to ad-hoc.
+- Automated-test safety net: `WipeShield.app/Contents/MacOS/WipeShield --self-test <seconds>` exits cleanly after N seconds; `--self-test-start` additionally triggers the start path once.
 
 Releases are built by GitHub Actions (`.github/workflows/release.yml`) on tag push.
 

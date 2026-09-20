@@ -1,0 +1,17 @@
+"app.name" = "WipeShield";
+"wipe.title" = "클리닝 모드";
+"wipe.subtitle" = "키보드 · 트랙패드 · 마우스 입력이 모두 차단되었습니다";
+"wipe.exit" = "종료하려면 esc 키를 누르세요";
+"main.subtitle" = "청소하는 동안 모든 입력을 잠급니다";
+"main.start" = "클리닝 모드 시작";
+"main.hint" = "esc로 종료 · ⌥⌘K로 언제든 시작";
+"menu.login" = "로그인 시 실행";
+"menu.about" = "WipeShield 정보";
+"menu.quit" = "WipeShield 종료";
+"perm.title" = "WipeShield에 접근성 권한이 필요합니다";
+"perm.body" = "입력 차단에는 '접근성' 권한이 필요합니다.\n\n시스템 설정 → 개인정보 보호 및 보안 → 접근성에서 WipeShield를 허용해 주세요.";
+"perm.open" = "시스템 설정 열기";
+"perm.retry" = "허용 후 다시 시도";
+"perm.later" = "나중에";
+"tapfail.title" = "클리닝 모드를 시작할 수 없습니다";
+"tapfail.body" = "입력 차단기를 초기화하지 못했습니다(대개 접근성 권한이 없음). 안전을 위해 클리닝 모드를 시작하지 않았습니다.";

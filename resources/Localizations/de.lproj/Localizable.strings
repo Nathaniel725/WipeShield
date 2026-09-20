@@ -1,0 +1,17 @@
+"app.name" = "WipeShield";
+"wipe.title" = "Reinigungsmodus";
+"wipe.subtitle" = "Tastatur · Trackpad · Mauseingabe ist blockiert";
+"wipe.exit" = "Zum Beenden esc drücken";
+"main.subtitle" = "Sperre alle Eingaben während der Reinigung";
+"main.start" = "Reinigungsmodus starten";
+"main.hint" = "esc zum Beenden · ⌥⌘K zum jederzeitigen Start";
+"menu.login" = "Beim Anmelden öffnen";
+"menu.about" = "Über WipeShield";
+"menu.quit" = "WipeShield beenden";
+"perm.title" = "WipeShield benötigt Bedienungshilfen-Zugriff";
+"perm.body" = "Zum Blockieren von Eingaben wird die Berechtigung „Bedienungshilfen“ benötigt.\n\nSystemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen → WipeShield erlauben.";
+"perm.open" = "Systemeinstellungen öffnen";
+"perm.retry" = "Erteilt, erneut versuchen";
+"perm.later" = "Später";
+"tapfail.title" = "Reinigungsmodus kann nicht gestartet werden";
+"tapfail.body" = "Der Eingabeblocker konnte nicht initialisiert werden (meist fehlt die Berechtigung). Der Reinigungsmodus wurde NICHT gestartet.";

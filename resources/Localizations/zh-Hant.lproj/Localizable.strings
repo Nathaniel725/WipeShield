@@ -1,0 +1,17 @@
+"app.name" = "擦屏衛士";
+"wipe.title" = "清潔模式";
+"wipe.subtitle" = "鍵盤 · 觸控板 · 滑鼠輸入已全部封鎖";
+"wipe.exit" = "按 esc 離開";
+"main.subtitle" = "清潔螢幕與鍵盤時，鎖定一切輸入";
+"main.start" = "開始清潔模式";
+"main.hint" = "清潔中按 esc 結束 · 隨時可用 ⌥⌘K 開始";
+"menu.login" = "登入時自動開啟";
+"menu.about" = "關於 擦屏衛士";
+"menu.quit" = "結束 擦屏衛士";
+"perm.title" = "「擦屏衛士」需要輔助使用權限";
+"perm.body" = "阻擋鍵盤與滑鼠輸入，需要授予「輔助使用」權限。\n\n請前往 系統設定 → 隱私權與安全性 → 輔助使用，允許「擦屏衛士」。";
+"perm.open" = "開啟系統設定";
+"perm.retry" = "我已授權，重試";
+"perm.later" = "稍後";
+"tapfail.title" = "無法開始清潔模式";
+"tapfail.body" = "輸入攔截器初始化失敗（通常是未授予輔助使用權限）。為避免「假鎖定」，本次未進入清潔模式。";

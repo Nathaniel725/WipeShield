@@ -1,0 +1,17 @@
+"app.name" = "WipeShield";
+"wipe.title" = "Modo de limpieza";
+"wipe.subtitle" = "El teclado, el trackpad y el ratón están bloqueados";
+"wipe.exit" = "Pulsa esc para salir";
+"main.subtitle" = "Bloquea toda la entrada mientras limpias";
+"main.start" = "Iniciar modo de limpieza";
+"main.hint" = "esc para terminar · ⌥⌘K para iniciar en cualquier momento";
+"menu.login" = "Abrir al iniciar sesión";
+"menu.about" = "Acerca de WipeShield";
+"menu.quit" = "Salir de WipeShield";
+"perm.title" = "WipeShield necesita permiso de Accesibilidad";
+"perm.body" = "Bloquear la entrada requiere el permiso «Accesibilidad».\n\nAjustes del Sistema → Privacidad y seguridad → Accesibilidad → permitir WipeShield.";
+"perm.open" = "Abrir Ajustes del Sistema";
+"perm.retry" = "Concedido, reintentar";
+"perm.later" = "Más tarde";
+"tapfail.title" = "No se puede iniciar el modo de limpieza";
+"tapfail.body" = "No se pudo inicializar el bloqueador de entrada (normalmente falta el permiso). El modo de limpieza NO se inició.";

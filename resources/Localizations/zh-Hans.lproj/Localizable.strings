@@ -1,0 +1,17 @@
+"app.name" = "擦屏卫士";
+"wipe.title" = "擦拭模式";
+"wipe.subtitle" = "键盘 · 触控板 · 鼠标输入已全部拦截";
+"wipe.exit" = "按 esc 退出";
+"main.subtitle" = "擦拭屏幕与键盘时，锁定一切输入";
+"main.start" = "开始擦拭模式";
+"main.hint" = "擦拭中按 esc 退出 · 随时可用 ⌥⌘K 开始";
+"menu.login" = "登录时自动启动";
+"menu.about" = "关于 擦屏卫士";
+"menu.quit" = "退出 擦屏卫士";
+"perm.title" = "「擦屏卫士」需要辅助功能权限";
+"perm.body" = "拦截键盘和鼠标输入，需要授予「辅助功能」权限。\n\n请前往 系统设置 → 隐私与安全性 → 辅助功能，允许「擦屏卫士」。";
+"perm.open" = "打开系统设置";
+"perm.retry" = "我已授权，重试";
+"perm.later" = "稍后";
+"tapfail.title" = "无法启动擦拭模式";
+"tapfail.body" = "输入拦截初始化失败（通常是辅助功能权限未授予或被撤销）。为避免「假锁定」，本次未进入擦拭模式。";

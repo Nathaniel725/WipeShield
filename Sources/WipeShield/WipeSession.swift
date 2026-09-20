@@ -39,7 +39,7 @@ final class WipeSession {
         let result = IOPMAssertionCreateWithName(
             kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString,
             UInt32(kIOPMAssertionLevelOn),
-            "WipeGuard 擦拭模式进行中" as CFString,
+            "WipeShield cleaning in progress" as CFString,
             &assertionID
         )
         if result == kIOReturnSuccess {

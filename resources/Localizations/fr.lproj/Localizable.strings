@@ -1,0 +1,17 @@
+"app.name" = "WipeShield";
+"wipe.title" = "Mode de nettoyage";
+"wipe.subtitle" = "Le clavier, le trackpad et la souris sont bloqués";
+"wipe.exit" = "Appuyez sur esc pour quitter";
+"main.subtitle" = "Verrouille toutes les entrées pendant le nettoyage";
+"main.start" = "Démarrer le mode de nettoyage";
+"main.hint" = "esc pour terminer · ⌥⌘K pour démarrer à tout moment";
+"menu.login" = "Ouvrir à la connexion";
+"menu.about" = "À propos de WipeShield";
+"menu.quit" = "Quitter WipeShield";
+"perm.title" = "WipeShield nécessite l'accès aux fonctions d'accessibilité";
+"perm.body" = "Le blocage des entrées nécessite le droit « Accessibilité ».\n\nRéglages Système → Confidentialité et sécurité → Accessibilité → autoriser WipeShield.";
+"perm.open" = "Ouvrir les Réglages Système";
+"perm.retry" = "Accordé, réessayer";
+"perm.later" = "Plus tard";
+"tapfail.title" = "Impossible de démarrer le mode de nettoyage";
+"tapfail.body" = "Échec de l'initialisation du bloqueur d'entrée (droit d'accessibilité manquant, en général). Le mode de nettoyage n'a PAS démarré.";

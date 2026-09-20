@@ -1,0 +1,17 @@
+"app.name" = "WipeShield";
+"wipe.title" = "Cleaning Mode";
+"wipe.subtitle" = "Keyboard · trackpad · mouse input is blocked";
+"wipe.exit" = "Press esc to exit";
+"main.subtitle" = "Lock all input while you clean";
+"main.start" = "Start Cleaning Mode";
+"main.hint" = "esc to finish · ⌥⌘K to start anytime";
+"menu.login" = "Launch at Login";
+"menu.about" = "About WipeShield";
+"menu.quit" = "Quit WipeShield";
+"perm.title" = "WipeShield Needs Accessibility Permission";
+"perm.body" = "Blocking keyboard & mouse input requires the Accessibility permission.\n\nSystem Settings → Privacy & Security → Accessibility → allow WipeShield.";
+"perm.open" = "Open System Settings";
+"perm.retry" = "Granted, Retry";
+"perm.later" = "Later";
+"tapfail.title" = "Cannot Start Cleaning Mode";
+"tapfail.body" = "Failed to install the input blocker (usually the Accessibility permission is missing). Cleaning mode was NOT started to avoid a false sense of safety.";

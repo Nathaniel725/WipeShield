@@ -5,18 +5,18 @@ import AppKit
 let arguments = CommandLine.arguments
 
 if arguments.contains("--version") {
-    print("WipeGuard \(AppOptions.version)")
+    print("WipeShield \(AppOptions.version)")
     exit(0)
 }
 
 if arguments.contains("--help") {
     print("""
-    WipeGuard 擦屏卫士 — 擦拭屏幕 / 键盘时锁定一切输入
+    WipeShield — lock all Mac input behind a black shield while you clean.
 
-    用法:
-      双击 WipeGuard.app          直接进入擦拭模式，按 esc 退出
-      --self-test <秒>            自动化自测: N 秒后自动清理并退出进程
-      --version                   查看版本
+    Usage:
+      double-click WipeShield.app    enter Cleaning Mode; press esc to exit
+      --self-test <seconds>          automated-test safety net: exits after N seconds
+      --version                      print version
     """)
     exit(0)
 }

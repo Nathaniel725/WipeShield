@@ -1,0 +1,17 @@
+"app.name" = "WipeShield";
+"wipe.title" = "クリーニングモード";
+"wipe.subtitle" = "キーボード · トラックパッド · マウスの入力をすべてブロック中";
+"wipe.exit" = "esc キーで終了";
+"main.subtitle" = "お掃除の間、すべての入力をロック";
+"main.start" = "クリーニングモードを開始";
+"main.hint" = "esc で終了 · ⌥⌘K でいつでも開始";
+"menu.login" = "ログイン時に起動";
+"menu.about" = "WipeShield について";
+"menu.quit" = "WipeShield を終了";
+"perm.title" = "WipeShield には補助アクセス権限が必要です";
+"perm.body" = "入力のブロックには「補助アクセス」権限が必要です。\n\nシステム設定 → プライバシーとセキュリティ → 補助アクセスで WipeShield を許可してください。";
+"perm.open" = "システム設定を開く";
+"perm.retry" = "許可したので再試行";
+"perm.later" = "後で";
+"tapfail.title" = "クリーニングモードを開始できません";
+"tapfail.body" = "入力ブロッカーの初期化に失敗しました（通常は補助アクセス権限がありません）。安全のため、クリーニングモードは開始しませんでした。";
