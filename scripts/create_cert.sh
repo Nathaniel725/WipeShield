@@ -32,16 +32,19 @@ basicConstraints = critical, CA:FALSE
 subjectKeyIdentifier = hash
 EOF
 
+# 临时打包密码：仅保护 mktemp 目录里的一次性 .p12（导入钥匙串后即删除），随机生成、不留明文。
+P12_PASS="$(openssl rand -hex 16)"
+
 # 注意：macOS 的 security 工具只认传统 PKCS#12 加密（3DES/SHA1），
 # 新版 OpenSSL/LibreSSL 默认的 AES-256 导出会导致导入报 MAC 校验失败。
 openssl req -x509 -newkey rsa:2048 -nodes -days 3650 \
     -keyout "$WORK/key.pem" -out "$WORK/cert.pem" -config "$WORK/cert.cnf" 2>/dev/null
 openssl pkcs12 -export -inkey "$WORK/key.pem" -in "$WORK/cert.pem" -name "$CERT_CN" \
-    -out "$WORK/wipeshield-dev.p12" -passout pass:wipeshield-local \
+    -out "$WORK/wipeshield-dev.p12" -passout "pass:$P12_PASS" \
     -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg sha1
 
 security import "$WORK/wipeshield-dev.p12" \
-    -k "$HOME/Library/Keychains/login.keychain-db" -P wipeshield-local -T /usr/bin/codesign
+    -k "$HOME/Library/Keychains/login.keychain-db" -P "$P12_PASS" -T /usr/bin/codesign
 security add-trusted-cert -r trustRoot -p codeSign -p basic "$WORK/cert.pem"
 
 echo "证书已创建并受信任："
